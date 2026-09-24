@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>模型编年史 · 大模型发布时间线</title>
+  <meta
+    name="description"
+    content="收录 GPT-2 至今各大实验室大模型的发布时间线、发布间隔与发布时的官方评测成绩。"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap head-row">
+      <div>
+        <h1>模型编年史</h1>
+        <p class="subtitle">大模型发布时间线：发布日期 · 发布间隔 · 发布时的能力成绩</p>
+        <p class="updated-at" id="updated-at"></p>
+      </div>
+      <button id="theme-toggle" type="button">主题：跟随系统</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="kpis" id="kpis" aria-label="概览"></section>
+
+    <div class="filter-row" id="filters" aria-label="筛选"></div>
+
+    <section class="card">
+      <h2>发布时间线</h2>
+      <div class="tl-head">
+        <p class="card-sub">每行一个厂商，圆点为一次发布；标注的是各厂商的标志性模型。</p>
+        <div class="segmented tl-tools" role="group" aria-label="时间轴缩放">
+          <button id="tl-zoom-in" aria-label="时间轴放大">＋</button>
+          <button id="tl-zoom-out" aria-label="时间轴缩小">－</button>
+          <button id="tl-reset">复位</button>
+        </div>
+      </div>
+      <div id="timeline"></div>
+    </section>
+
+    <section class="card">
+      <h2>发布间隔</h2>
+      <p class="card-sub">各厂商相邻两次发布的平均间隔天数，越短节奏越快。</p>
+      <div id="intervals"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2>能力基准</h2>
+          <p class="card-sub">同一基准下，各模型发布时官方报告的分数。</p>
+        </div>
+        <div id="bench-head"></div>
+      </div>
+      <div id="bench"></div>
+    </section>
+
+    <section class="card">
+      <h2>模型明细</h2>
+      <p class="card-sub">全部收录模型的完整数据，按发布时间倒序。</p>
+      <div id="table"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p id="footer-note"></p>
+      <p>如发现错误或遗漏，欢迎提 issue 或 PR 补充。</p>
+    </div>
+  </footer>
+
+  <div id="tooltip" hidden></div>
+
+  <script src="data/models.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
