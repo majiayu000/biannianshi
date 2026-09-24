@@ -62,7 +62,8 @@ node scripts/build-data.js   # 合并去重 → data/models.js（生成文件，
 
 ```
 index.html             页面骨架
-css/style.css          样式（含深浅两套色板，已过色板校验）
+css/style.css          样式（深浅主题与响应式布局）
+PRODUCT.md             产品定位与界面设计原则
 js/app.js              渲染逻辑（时间轴 / 间隔 / 基准 / 明细表 / 筛选 / 主题切换）
 data/models.js         数据（由脚本生成，勿手改）
 data/_merge/*.json     源数据（按厂商分文件）

@@ -4,33 +4,51 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>模型编年史 · 大模型发布时间线</title>
-  <meta
-    name="description"
-    content="收录 GPT-2 至今各大实验室大模型的发布时间线、发布间隔与发布时的官方评测成绩。"
-  />
+  <meta name="description" content="查询大模型发布日期、发布间隔与发布时的官方评测成绩。" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap head-row">
-      <div>
-        <h1>模型编年史</h1>
-        <p class="subtitle">大模型发布时间线：发布日期 · 发布间隔 · 发布时的能力成绩</p>
-        <p class="updated-at" id="updated-at"></p>
-      </div>
-      <button id="theme-toggle" type="button">主题：跟随系统</button>
+  <header class="app-bar">
+    <div class="shell app-bar-inner">
+      <a class="brand" href="#top" aria-label="模型编年史，返回顶部">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>模型编年史</span>
+      </a>
+      <nav class="primary-nav" aria-label="页面导航">
+        <a href="#timeline-section">时间轴</a>
+        <a href="#insights-section">数据对比</a>
+        <a href="#models-section">模型明细</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button">主题：跟随系统</button>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="kpis" id="kpis" aria-label="概览"></section>
+  <main class="shell" id="top">
+    <div class="page-intro">
+      <div>
+        <p class="eyebrow">MODEL RELEASE EXPLORER</p>
+        <h1>追踪每一次模型发布</h1>
+        <p class="intro-sub">按时间与厂商浏览模型，查看发布节奏、评测成绩和原始来源。</p>
+      </div>
+      <p class="updated-at" id="updated-at"></p>
+    </div>
 
-    <div class="filter-row" id="filters" aria-label="筛选"></div>
+    <section class="summary-strip" id="kpis" aria-label="数据概览"></section>
 
-    <section class="card">
-      <h2>发布时间线</h2>
-      <div class="tl-head">
-        <p class="card-sub">每行一个厂商，圆点为一次发布；标注的是各厂商的标志性模型。</p>
+    <section class="panel timeline-panel" id="timeline-section" aria-labelledby="timeline-title">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">01 / DISCOVER</p>
+          <h2 id="timeline-title">发布时间线</h2>
+        </div>
+        <p class="panel-hint">滚轮缩放，拖动查看更早的记录</p>
+      </div>
+      <div class="filter-toolbar">
+        <span class="toolbar-label">筛选</span>
+        <div class="filter-row" id="filters" aria-label="筛选厂商和时间"></div>
+      </div>
+      <div class="timeline-controls">
+        <p>每行一个厂商，每个圆点代表一次发布。</p>
         <div class="segmented tl-tools" role="group" aria-label="时间轴缩放">
           <button id="tl-zoom-in" aria-label="时间轴放大">＋</button>
           <button id="tl-zoom-out" aria-label="时间轴缩小">－</button>
@@ -40,39 +58,54 @@
       <div id="timeline"></div>
     </section>
 
-    <section class="card">
-      <h2>发布间隔</h2>
-      <p class="card-sub">各厂商相邻两次发布的平均间隔天数，越短节奏越快。</p>
-      <div id="intervals"></div>
-    </section>
-
-    <section class="card">
-      <div class="card-head">
-        <div>
-          <h2>能力基准</h2>
-          <p class="card-sub">同一基准下，各模型发布时官方报告的分数。</p>
+    <div class="insights-grid" id="insights-section">
+      <section class="panel" aria-labelledby="intervals-title">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">02 / CADENCE</p>
+            <h2 id="intervals-title">发布间隔</h2>
+          </div>
         </div>
-        <div id="bench-head"></div>
-      </div>
-      <div id="bench"></div>
-    </section>
+        <p class="panel-description">当前筛选范围内，各厂商相邻发布的平均间隔。</p>
+        <div id="intervals"></div>
+      </section>
 
-    <section class="card">
-      <h2>模型明细</h2>
-      <p class="card-sub">全部收录模型的完整数据，按发布时间倒序。</p>
+      <section class="panel" aria-labelledby="bench-title">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">03 / BENCHMARKS</p>
+            <h2 id="bench-title">能力基准</h2>
+          </div>
+        </div>
+        <div class="bench-toolbar">
+          <p class="panel-description">选择评测基准，查看发布时的官方报告值。</p>
+          <div id="bench-head"></div>
+        </div>
+        <div id="bench"></div>
+      </section>
+    </div>
+
+    <section class="panel models-panel" id="models-section" aria-labelledby="models-title">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">04 / INDEX</p>
+          <h2 id="models-title">模型明细</h2>
+        </div>
+        <p class="panel-hint">按发布时间从近到远</p>
+      </div>
       <div id="table"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
+    <div class="shell">
+      <span>模型编年史</span>
       <p id="footer-note"></p>
-      <p>如发现错误或遗漏，欢迎提 issue 或 PR 补充。</p>
+      <p>发现错误或遗漏，欢迎提交 issue 或 PR。</p>
     </div>
   </footer>
 
   <div id="tooltip" hidden></div>
-
   <script src="data/models.js"></script>
   <script src="js/app.js"></script>
 </body>
