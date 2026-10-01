@@ -56,6 +56,8 @@ node scripts/build-data.js   # 合并去重 → data/models.js（生成文件，
 
 ## 数据口径
 
+网站中的[阅读口径](https://majiayu000.github.io/biannianshi/#reading-guide)说明早期记录、月份精度、发布间隔与基准比较的限制。本站和 [Model Chronicle](https://majiayu000.github.io/model-chronicle/model/explore.html)由同一维护者维护；本站侧重零依赖发布时间线，后者提供系列演进、规格筛选与数据工具，收录范围不保证相同。
+
 - 发布日期以实验室官方公告（博客 / 文档 / 论文 / 官方仓库）为准；仅确认到月的按当月 1 日定位并在图表中以空心点区分。
 - 评测分数为**发布时官方报告值**；不同时期测试口径不同，跨代际直接横比仅供参考。
 - 「距上作」按同一厂商上一款收录模型计算。

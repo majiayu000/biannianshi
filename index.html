@@ -31,6 +31,7 @@
         <a href="#timeline-section">时间轴</a>
         <a href="#insights-section">数据对比</a>
         <a href="#models-section">模型明细</a>
+        <a href="#reading-guide">阅读口径</a>
       </nav>
       <button id="theme-toggle" class="theme-toggle" type="button">主题：跟随系统</button>
     </div>
@@ -43,10 +44,15 @@
         <h1>追踪每一次模型发布</h1>
         <p class="intro-sub">按时间与厂商浏览模型，查看发布节奏、评测成绩和原始来源。</p>
       </div>
-      <p class="updated-at" id="updated-at"></p>
+      <p class="updated-at" id="updated-at">正在加载收录数据</p>
     </div>
 
-    <section class="summary-strip" id="kpis" aria-label="数据概览"></section>
+    <section class="summary-strip" id="kpis" aria-label="数据概览">
+      <div class="kpi"><div class="kpi-label">收录模型</div><div class="kpi-value">…</div><div class="kpi-sub">正在加载</div></div>
+      <div class="kpi"><div class="kpi-label">涉及厂商 / 实验室</div><div class="kpi-value">…</div><div class="kpi-sub">按实验室去重</div></div>
+      <div class="kpi"><div class="kpi-label">时间跨度</div><div class="kpi-value">…</div><div class="kpi-sub">首次发布 → 最新发布</div></div>
+      <div class="kpi"><div class="kpi-label">近 12 个月发布</div><div class="kpi-value">…</div><div class="kpi-sub">模型 / 重要版本</div></div>
+    </section>
 
     <section class="panel timeline-panel" id="timeline-section" aria-labelledby="timeline-title">
       <div class="panel-heading">
@@ -58,7 +64,7 @@
       </div>
       <div class="filter-toolbar">
         <span class="toolbar-label">筛选</span>
-        <div class="filter-row" id="filters" aria-label="筛选厂商和时间"></div>
+        <div class="filter-row" id="filters" aria-label="筛选厂商和时间"><div class="segmented" role="group" aria-label="时间范围"><button class="active" disabled>全部时间</button><button disabled>近 3 年</button><button disabled>近 1 年</button></div><button class="chip active" disabled><span class="swatch"></span>OpenAI</button><button class="chip active" disabled><span class="swatch"></span>Anthropic</button><button class="chip active" disabled><span class="swatch"></span>Google</button><button class="chip active" disabled><span class="swatch"></span>Meta</button><button class="chip active" disabled><span class="swatch"></span>xAI</button><button class="chip active" disabled><span class="swatch"></span>DeepSeek</button><button class="chip active" disabled><span class="swatch"></span>阿里通义</button><button class="chip active" disabled><span class="swatch"></span>其他厂商</button></div>
       </div>
       <div class="timeline-controls">
         <p>每行一个厂商，每个圆点代表一次发布。</p>
@@ -108,13 +114,21 @@
       </div>
       <div id="table"></div>
     </section>
+    <section class="panel" id="reading-guide" aria-labelledby="reading-title">
+      <div class="panel-heading"><h2 id="reading-title">怎样读大模型发布时间线</h2></div>
+      <p class="panel-description">先在<a href="#timeline-section">时间轴</a>筛选厂商与日期，再到<a href="#models-section">模型明细</a>核对原始来源。查看 2019–2021 的记录时，向左拖动；滚轮缩放，双击或点击「复位」回到默认视图。</p>
+      <details><summary>日期只确认到月份，会怎样显示？</summary><p>仅确认到月的记录按当月 1 日定位，用空心点区分；这不表示模型就在 1 日发布。明细中的低置信度记录带星号，具体口径和来源应逐条核对。</p></details>
+      <details><summary>「距上作」是同系列两代模型的间隔吗？</summary><p>这里按同一厂商上一款收录模型计算，可能跨系列，也会受收录范围影响。发布节奏可以作为观察线索，不能据此认定某系列的固定迭代周期。</p></details>
+      <details><summary>评测分数可以直接排出最强模型吗？</summary><p><a href="#bench-title">能力基准</a>展示发布时官方报告值。不同报告的题集、提示与评测条件可能不同，本站没有重新测试这些模型；需要比较性能时，请先阅读对应来源的实验条件。</p></details>
+      <p class="panel-description">本页是零依赖的发布时间线。需要系列演进、规格筛选、数据下载与发布价费用试算，可查看同一维护者的<a href="https://majiayu000.github.io/model-chronicle/model/explore.html">Model Chronicle 资料与工具</a>；两站收录范围需分别核对。发现缺失或错误，可向<a href="https://github.com/majiayu000/biannianshi/issues">本项目提交反馈</a>，附模型名称、日期与官方来源。</p>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="shell">
       <span>模型编年史</span>
       <p id="footer-note"></p>
-      <p>发现错误或遗漏，欢迎提交 issue 或 PR。</p>
+      <p>发现错误或遗漏，欢迎提交 <a href="https://github.com/majiayu000/biannianshi/issues">issue</a> 或 <a href="https://github.com/majiayu000/biannianshi/pulls">PR</a>。<a href="https://github.com/majiayu000/biannianshi">数据与源码</a></p>
     </div>
   </footer>
 
