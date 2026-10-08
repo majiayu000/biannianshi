@@ -731,9 +731,9 @@ window.MODEL_DATA = {
       "context": "",
       "flagship": true,
       "benchmarks": {
-        "AIME 2024": 83.3
+        "AIME 2024": 56.7
       },
-      "note": "推理模型开端：AIME 约 83%（GPT-4o 仅 13%），Codeforces 89 分位。",
+      "note": "推理模型开端：AIME 2024 56.7%（cons@64，即 64 次采样多数投票；官方 Appendix A 的 o1-preview 列）。",
       "sources": [
         "https://openai.com/index/learning-to-reason-with-llms/"
       ]
