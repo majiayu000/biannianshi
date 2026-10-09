@@ -369,7 +369,7 @@
           class: "dot",
           tabindex: 0,
           role: "img",
-          "aria-label": `${m.name}，${m.lab}，发布于 ${fmtDate(m.date)}`,
+          "aria-label": `${m.name}，${m.lab}，发布于 ${fmtDate(m)}`,
         });
         const circle = svgEl("circle", {
           cx, cy: y, r: 5,
